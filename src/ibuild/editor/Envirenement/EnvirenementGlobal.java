@@ -6,10 +6,12 @@
 
 package ibuild.editor.Envirenement;
 import ibuild.editor.CloseEditor;
+import ibuild.editor.ConfEditor;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 /**
@@ -46,12 +48,14 @@ public class EnvirenementGlobal extends JFrame{
     }
     
     public EnvirenementGlobal() {
+        ConfEditor conf = new ConfEditor();
+        String version = conf.getProperty("version");
         
         JTabbedPane tabbedpane = new JTabbedPane();
         
         this.setUndecorated(false);
         this.getContentPane().setBackground(Color.white);
-        this.setTitle("Ibuild Editor - Accueil [Alpha 0.1]");
+        this.setTitle("Ibuild Editor - Accueil [" + version + " Alpha]");
         this.setSize(800, 800);
         this.setExtendedState(this.MAXIMIZED_BOTH);
         this.setResizable(true);
@@ -88,9 +92,17 @@ public class EnvirenementGlobal extends JFrame{
         
         this.setJMenuBar(menuBar);
         
-        Quitter.addActionListener(new ActionListener(){
+        /*NProjet.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.CTRL_MASK, KeyEvent.SHIFT_MASK + KeyEvent.VK_N));*/
+        
+        NProjet.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent arg0) {
-              CloseEditor Close = new CloseEditor();
+              NewProject NProjet = new NewProject();
+            }        
+        });
+        
+        OProjet.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0) {
+              NewProject NProjet = new NewProject();
             }        
         });
         
@@ -99,7 +111,37 @@ public class EnvirenementGlobal extends JFrame{
               tabbedpane.addTab("Nouveau Fichier", new JEditorPane());
             }        
         });
-
+        
+        OFichier.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0) {
+              NewProject NProjet = new NewProject();
+            }        
+        });
+        
+        FProjet.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0) {
+              NewProject NProjet = new NewProject();
+            }        
+        });
+        
+        IProjet.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0) {
+              NewProject NProjet = new NewProject();
+            }        
+        });
+        
+        EProjet.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0) {
+              NewProject NProjet = new NewProject();
+            }        
+        });
+        
+        Quitter.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent arg0) {
+              CloseEditor Close = new CloseEditor();
+            }        
+        });
+        
         tabbedpane.addTab("Page de démarrage", new JLabel("En cours de construction.."));
 
         tabbedpane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);

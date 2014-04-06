@@ -5,6 +5,7 @@
  */
 
 package ibuild.editor.Envirenement;
+import ibuild.editor.ConfEditor;
 import javax.swing.*;
 import java.net.*;
 import java.io.*; 
@@ -18,7 +19,8 @@ public class LoadVersion extends JFrame{
     private JProgressBar progressbar = new JProgressBar();
     
     public LoadVersion() throws MalformedURLException, IOException {
-        String version_now = "1.0";
+        ConfEditor conf = new ConfEditor();
+        String version_now = conf.getProperty("version");
         this.setTitle("Recherche de mise a jour...");
         this.setSize(400, 100);
         this.setResizable(false);
@@ -52,6 +54,8 @@ public class LoadVersion extends JFrame{
                 }else{
                     System.out.println("[MAJ] Une nouvelle version est sortie. [" + version + "]");
                     this.setTitle("En cours de mise a jours...");
+                    
+                    // Syteme de mise a jours a rajouté quand la version est dépasse.
                 }
             System.out.println("[MAJ] Déconnexion");
             

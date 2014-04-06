@@ -5,6 +5,7 @@
  */
 
 package ibuild.editor;
+import ibuild.editor.ConfEditor;
 import ibuild.editor.Console.*;
 import ibuild.editor.Envirenement.*;
 import java.io.IOException;
@@ -33,7 +34,11 @@ public class IbuildEditor {
             //Erreur inconnnue ou de look and feel
         }
         
-        System.out.println("Bienvenue sur Ibuild Editor 0.1 Alpha !");
+        ConfEditor conf = new ConfEditor();
+        String version = conf.getProperty("version");
+        String console = conf.getProperty("console");
+        
+        System.out.println("Bienvenue sur Ibuild Editor " + version + " Alpha !");
         System.out.println("Tous droits réservés ses créateurs.");
         String os_name = System.getProperty("os.name", "");
         String os_version = System.getProperty("os.version", "");
@@ -45,7 +50,14 @@ public class IbuildEditor {
         System.out.println("Lancement de l'interface graphique...");
         EnvirenementGlobal EnvirenementMain = new EnvirenementGlobal();
         System.out.println("Lancement de la console DEV...");
-        MainConsole Main = new MainConsole();
+        System.out.println("Bienvenue sur Ibuild Editor !");
+        System.out.println("---------------------------------------");
+        if (console.equals("on")) {
+            MainConsole Main = new MainConsole();
+        }else{
+            System.out.println("- Console de dévellopeur -> Désactivé -");
+            System.out.println("---------------------------------------");
+        }
     }
     
 }
