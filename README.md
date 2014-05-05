@@ -22,9 +22,9 @@ Toutes suggestions où contacts ce fait pas l’intermédiaire de ce topique :  
 
 - Système d'exploitation : Windows/Linux/Solaris/Unix
 
-- Mémoire (RAM) : 512 Go ou supérieur
+- Mémoire (RAM) : 512 Mo ou supérieur
 
-- Espace disque : 5 MO ou supérieur
+- Espace disque : 5 Mo ou supérieur
 
 ## Installation de Ibuild Editor
 
